@@ -130,8 +130,8 @@ h2 {
     background-color: transparent !important;
     color: var(--text-color);
     border: 4px solid var(--text-color) !important;
-    max-width: 80%; /* Define a largura máxima */
-    margin: 0 auto; /* Centraliza o popup */
+
+    max-width: 90%;
     padding: unset !important;
     border: unset !important;
 }
@@ -145,26 +145,26 @@ h2 {
     padding: 2vw !important;
     font-family: 'Libre Baskerville', serif;
     animation: popupAnimation 0.4s ease-in-out;
+
     width: 100%;
-    height: 100%;
+    margin: 0;
     .box {
+        width: 100%;
         display: flex;
         justify-content: center;
         align-items: center;
+        gap: 4vw;
         .right-box {
-            min-width: 60%;
+            width: 60%;
             display: flex;
             align-items: center;
             justify-content: center;
             .popup-extra {
-                max-width: 100%;
-                max-height: 100%;
-                width: auto;
-                height: auto;
+                width: 100%;
             }
         }
         .left-box {
-            min-width: 40%;
+            width: 40%;
             .h3-title {
                 font-weight: bolder;
                 font-size: calc(1.5vw + 1.5vh);
