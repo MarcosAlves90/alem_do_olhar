@@ -1,0 +1,291 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap');
+@import url('https://fonts.cdnfonts.com/css/daydream');
+
+:root {
+    --text-color: #fff7fb;
+    --background-color: #e3a0d5;
+    --box-background-color: #ff297a;
+    --common-transition: transform 0.2s ease-in-out;
+    --text-dark-color: #333333;
+}
+
+#root {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 2rem;
+    text-align: center;
+    color: var(--text-color);
+    font-family: 'Libre Baskerville', serif;
+    font-size: 0.85vw;
+}
+
+* {
+    scrollbar-width: thin;
+    scrollbar-color: var(--text-color) var(--box-background-color);
+}
+
+
+p {
+    margin: 16px 0 16px 0 !important;
+}
+
+h2 {
+    font-weight: bolder !important;
+    font-size: 1.5rem !important;
+    margin: 16px 0 2rem 0 !important;
+}
+
+.no-scroll {
+    overflow: hidden;
+}
+
+.background-image {
+    background: linear-gradient(270deg, #ff7eb3, #ff4081, #ff1a75, #ff004d, #ff7eb3);
+    background-size: 400% 400%;
+    opacity: 1.0;
+    z-index: -1;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    position: fixed;
+    animation: pinkGradientAnimation 8s ease infinite;
+}
+
+.background-image:before {
+    content: "";
+    background-color: transparent;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 600'%3E%3Cfilter id='a'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.65' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23a)'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 182px;
+    opacity: 0.80;
+    top: 0;
+    left: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.header {
+    margin-top: 2vw;
+    .svg-title {
+        width: 45vw;
+        height: 160px;
+        object-fit: cover;
+    }
+}
+
+.ul-box {
+    background-color: var(--box-background-color);
+    padding: 1vw;
+    margin: 1vw;
+    border-radius: 15px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 600'%3E%3Cfilter id='a'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.65' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0.89  0 0 0 0 0.63  0 0 0 0 0.84  0 0 0 1 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23a)'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 182px;
+    .ul-box-ul-without-points {
+        list-style-type: none;
+        padding: 0;
+        margin: 16px 0 16px 0;
+        text-align: start;
+    }
+    .ul-box-ul-without-points.center {
+        text-align: center;
+    }
+}
+
+.box-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1vw;
+    button {
+        background-repeat: repeat;
+        background-size: 182px;
+        font-weight: bolder;
+        background-color: var(--text-color);
+        color: var(--box-background-color);
+        border-radius: 15px;
+        padding: 1vw;
+        font-family: 'Libre Baskerville', serif;
+        cursor: pointer;
+        transition: var(--common-transition);
+        border: 4px solid transparent;
+        &:hover {
+            border: 4px solid var(--text-color);
+            transform: scale(1.05) rotate(2deg);
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 600'%3E%3Cfilter id='a'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.65' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0.89  0 0 0 0 0.63  0 0 0 0 0.84  0 0 0 1 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23a)'/%3E%3C/svg%3E");
+            background-color: var(--box-background-color);
+            color: var(--text-color);
+        }
+    }
+}
+
+.popup-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 20px;
+    text-align: center;
+    background-color: transparent !important;
+    color: var(--text-color);
+    border: 4px solid var(--text-color) !important;
+    max-width: 80%; /* Define a largura máxima */
+    margin: 0 auto; /* Centraliza o popup */
+    padding: unset !important;
+    border: unset !important;
+}
+
+.popup-content.inside {
+    background: var(--item-color) !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 600'%3E%3Cfilter id='a'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.65' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0.89  0 0 0 0 0.63  0 0 0 0 0.84  0 0 0 1 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23a)'/%3E%3C/svg%3E") !important;
+    background-repeat: repeat;
+    background-size: 182px;
+    border: 6px solid var(--text-color) !important;
+    padding: 2vw !important;
+    font-family: 'Libre Baskerville', serif;
+    animation: popupAnimation 0.4s ease-in-out;
+    width: 100%;
+    height: 100%;
+    .box {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .right-box {
+            min-width: 60%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            .popup-extra {
+                max-width: 100%;
+                max-height: 100%;
+                width: auto;
+                height: auto;
+            }
+        }
+        .left-box {
+            min-width: 40%;
+            .h3-title {
+                font-weight: bolder;
+                font-size: calc(1.5vw + 1.5vh);
+            }
+            .popup-image {
+                width: 100%;
+                border-radius: 10px;
+                margin: 10px 0 1vw 0;
+            }
+            .box-buttons.popup {
+                button {
+                    outline: none;
+                    &:hover {
+                        transform: unset;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.mainCommon {
+    margin: 2vw;
+}
+
+.mainCommon.services {
+    .grid-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 20px;
+        padding: 20px;
+        .grid-item {
+            text-align: center;
+            background-color: var(--text-color);
+            border-radius: 10px;
+            padding: 10px;
+            transition: all 0.3s ease-in-out;
+            color: var(--box-background-color);
+            position: relative;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 600'%3E%3Cfilter id='a'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.65' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0.89  0 0 0 0 0.63  0 0 0 0 0.84  0 0 0 1 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23a)'/%3E%3C/svg%3E");
+            border: 4px solid var(--box-background-color);
+            &:hover {
+                border-color: var(--text-color);
+                transform: scale(1.05) rotate(-2deg);
+                background-color: var(--hover-color);
+                color: var(--text-color);
+                cursor: pointer;
+                .bi {
+                    display: block;
+                }
+            }
+            .bi {
+                display: none;
+                position: absolute;
+                bottom: 3px;
+                right: 3px;
+                left: 3px;
+            }
+            .grid-image {
+                width: 100%;
+                height: auto;
+                object-fit: cover;
+                border-radius: 10px;
+            }
+            .grid-name {
+                margin-top: 10px;
+                font-size: 1.2em;
+                font-weight: bold;
+                font-family: 'Libre Baskerville', serif;
+            }
+        }
+    }
+}
+
+/*--Scrollbar--*/
+
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--box-background-color);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--text-color);
+    border-radius: 10px;
+    border: 3px solid var(--box-background-color);
+}
+
+/*--Scrollbar--*/
+
+@keyframes pinkGradientAnimation {
+    0% {
+        background-position: 0 50%;
+    }
+    25% {
+        background-position: 50% 0;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    75% {
+        background-position: 50% 100%;
+    }
+    100% {
+        background-position: 0 50%;
+    }
+}
+
+@keyframes popupAnimation {
+    0% {
+        opacity: 0;
+        transform: scale(0.8) translateY(-50px);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.1) translateY(0);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
