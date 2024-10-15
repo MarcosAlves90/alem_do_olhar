@@ -49,6 +49,44 @@ export default function PaginaServicos() {
         return string.charAt(0).toUpperCase() + string.slice(1);
     }
 
+    function ContactItem({ type, contact }) {
+        let iconClass;
+        switch (type) {
+            case "WhatsApp":
+                iconClass = "bi bi-whatsapp";
+                break;
+            case "Telefone":
+                iconClass = "bi bi-telephone";
+                break;
+            case "Instagram":
+                iconClass = "bi bi-instagram";
+                break;
+            default:
+                iconClass = "";
+        }
+
+        return (
+            <p className="p-paragraph contact">
+                <i className={iconClass}></i> {contact}
+            </p>
+        );
+    }
+
+    function formatContact(contact) {
+        return contact.split('|').map((c, index) => {
+            c = c.trim();
+            if (c.startsWith("WhatsApp:")) {
+                return <ContactItem key={index} type="WhatsApp" contact={c.replace("WhatsApp:", "").trim()} />;
+            } else if (c.startsWith("Telefone:")) {
+                return <ContactItem key={index} type="Telefone" contact={c.replace("Telefone:", "").trim()} />;
+            } else if (c.startsWith("Instagram:")) {
+                return <ContactItem key={index} type="Instagram" contact={c.replace("Instagram:", "").trim()} />;
+            } else {
+                return <ContactItem key={index} type="Other" contact={c} />;
+            }
+        });
+    }
+
     return (
         <main className={"mainCommon services"}>
             <h2>{capitalizeFirstLetter(selectedService)}</h2>
@@ -58,13 +96,15 @@ export default function PaginaServicos() {
             </div>
             {selectedItem && (
                 <Popup open={true} closeOnDocumentClick onClose={() => setSelectedItem(null)}>
-                    <div className="popup-content inside" style={{'--item-color': selectedItem.color}}>
+                    <div className={`popup-content inside ${selectedItem.extra ? "" : "one"}`}
+                         style={{'--item-color': selectedItem.color}}>
+                        <i className="bi bi-eye-fill"></i>
                         <div className={"box"}>
-                            <div className={"left-box"}>
+                            <div className={`left-box`}>
+                                <img src={selectedItem.image} alt={selectedItem.name} className="popup-image"/>
                                 <h3 className={"h3-title"}>{selectedItem.name}</h3>
                                 <p className={"p-paragraph"}>{selectedItem.description}</p>
-                                <p className={"p-paragraph"}>{selectedItem.contact}</p>
-                                <img src={selectedItem.image} alt={selectedItem.name} className="popup-image"/>
+                                {formatContact(selectedItem.contact)}
                                 <div className={"box-buttons popup"}>
                                     <button onClick={() => setSelectedItem(null)}>Fechar</button>
                                 </div>

@@ -19,14 +19,14 @@ function App() {
       <>
           <Header/>
           <Routes>
-              <Route path="/" element={<PaginaInicial />} />
-              <Route path={`/${selectedService}`} element={<PaginaServicos />} />
+              <Route path="/" element={<PaginaInicial/>}/>
+              <Route path={`/${selectedService}`} element={<PaginaServicos/>}/>
           </Routes>
           <Footer/>
-          <div className={"background-image"}>
-          </div>
-      </>
-  )
-}
+          <div className={"background-pattern"}/>
+          <div className={"background-image"}/>
+          </>
+          )
+          }
 
-export default App
+          export default App

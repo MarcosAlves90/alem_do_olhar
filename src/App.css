@@ -11,6 +11,7 @@
 
 #root {
     max-width: 1280px;
+    width: 90%;
     margin: 0 auto;
     padding: 2rem;
     text-align: center;
@@ -39,11 +40,24 @@ h2 {
     overflow: hidden;
 }
 
+.background-pattern {
+    background-image: url("../images/common_background.png");
+    background-size: 100% 100%;
+    opacity: 1.0;
+    z-index: -1;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    position: fixed;
+    animation: zoomBackground 8s ease infinite;
+}
+
 .background-image {
     background: linear-gradient(270deg, #ff7eb3, #ff4081, #ff1a75, #ff004d, #ff7eb3);
     background-size: 400% 400%;
     opacity: 1.0;
-    z-index: -1;
+    z-index: -2;
     top: 0;
     bottom: 0;
     right: 0;
@@ -76,6 +90,7 @@ h2 {
 }
 
 .ul-box {
+    border: 4px solid var(--text-color);
     background-color: var(--box-background-color);
     padding: 1vw;
     margin: 1vw;
@@ -131,45 +146,49 @@ h2 {
     color: var(--text-color);
     border: 4px solid var(--text-color) !important;
 
-    max-width: 90%;
+    max-width: 45%;
+    width: fit-content !important;
     padding: unset !important;
     border: unset !important;
 }
 
 .popup-content.inside {
+    max-width: unset;
     background: var(--item-color) !important;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 600'%3E%3Cfilter id='a'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.65' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0.89  0 0 0 0 0.63  0 0 0 0 0.84  0 0 0 1 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23a)'/%3E%3C/svg%3E") !important;
-    background-repeat: repeat;
-    background-size: 182px;
-    border: 6px solid var(--text-color) !important;
-    padding: 2vw !important;
-    font-family: 'Libre Baskerville', serif;
+    background-image: url("../images/popup_background.png") !important;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+    border: 6px solid var(--text-color) !important;font-family: 'Libre Baskerville', serif;
     animation: popupAnimation 0.4s ease-in-out;
 
+    height: auto;
     width: 100%;
     margin: 0;
+    position: relative;
     .box {
+        border-radius: 13px;
+        padding: 2vw !important;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 600'%3E%3Cfilter id='a'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.65' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0.89  0 0 0 0 0.63  0 0 0 0 0.84  0 0 0 0.5 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23a)'/%3E%3C/svg%3E") !important;
+        height: 100%;
         width: 100%;
         display: flex;
         justify-content: center;
         align-items: center;
-        gap: 4vw;
-        .right-box {
-            width: 60%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            .popup-extra {
-                width: 100%;
-            }
-        }
         .left-box {
+            padding-right: 1vw;
             width: 40%;
             .h3-title {
                 font-weight: bolder;
-                font-size: calc(1.5vw + 1.5vh);
+                font-size: calc(1.2vw + 1.2vh);
+            }
+            .p-paragraph.contact {
+                color: var(--box-background-color);
+                font-weight: bolder;
+                background-color: #ffffff;
+                border-radius: 50px;
             }
             .popup-image {
+                max-width: 20vw;
                 width: 100%;
                 border-radius: 10px;
                 margin: 10px 0 1vw 0;
@@ -182,6 +201,38 @@ h2 {
                     }
                 }
             }
+        }
+        .right-box {
+            height: 100%;
+            padding-left: 1vw;
+            width: 60%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            .popup-extra {
+                border-radius: 10px;
+                height: auto;
+                width: 100%;
+                max-height: 100%;
+                object-fit: contain;
+                aspect-ratio: 1412 / 2000;
+            }
+        }
+    }
+    .bi-eye-fill {
+        font-size: 1.5vw;
+        position: absolute;
+        top: 3px;
+        left: 10px;
+    }
+}
+
+.popup-content.inside.one {
+    width: 60%;
+    .box {
+        .left-box {
+            padding-right: 0;
+            width: 100%;
         }
     }
 }
@@ -287,5 +338,20 @@ h2 {
     100% {
         opacity: 1;
         transform: scale(1) translateY(0);
+    }
+}
+
+@keyframes zoomBackground {
+    0% {
+        transform: scale(1);
+        rotate: 0deg;
+    }
+    50% {
+        transform: scale(1.1);
+        rotate: 6deg;
+    }
+    100% {
+        transform: scale(1);
+        rotate: 0deg;
     }
 }
