@@ -47,28 +47,25 @@ h2 {
     overflow: hidden;
 }
 
-.background-pattern {
-    background-image: url("../images/common_background.png");
-    background-size: 100% 100%;
-    opacity: 1.0;
-    z-index: -1;
+.background-image, .background-pattern {
+    height: 100vh;
+    position: fixed;
     top: 0;
     bottom: 0;
     right: 0;
     left: 0;
-    position: fixed;
+}
+
+.background-pattern {
+    background-image: url("../images/common_background.png");
+    background-size: 100% 100%;
+    z-index: -1;
     animation: zoomBackground 8s ease infinite;
 }
 
 .background-image {
     background-size: 400% 400%;
-    opacity: 1.0;
     z-index: -2;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    position: fixed;
 }
 
 .background-image:before {
