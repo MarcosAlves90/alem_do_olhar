@@ -117,7 +117,7 @@ export default function PaginaServicos() {
                 </button>
             </div>
             {selectedItem && (
-                <Popup open closeOnDocumentClick>
+                <Popup open closeOnDocumentClick onClose={() => setSelectedItem(null)}>
                     <div className={`popup-content inside ${selectedItem.extra ? "" : "one"}`} style={{ '--item-color': selectedItem.color }}>
                         <i className="bi bi-eye-fill"></i>
                         <div className="box">
