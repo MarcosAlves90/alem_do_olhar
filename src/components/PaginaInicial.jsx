@@ -15,13 +15,14 @@ export default function PaginaInicial() {
 
     return (
         <main className={"mainCommon"}>
-            <h2>Qual tipo de serviço você está procurando?</h2>
+            <h2 className={"h2-title-no-box"}>Qual tipo de serviço você está procurando?</h2>
             <div className={"box-buttons"}>
-                <button name="acessorios" onClick={handleServiceSelection}>Acessórios para casa ou uso pessoal</button>
-                <button name="comidas" onClick={handleServiceSelection}>Comidas/doces</button>
+                <button name="acessorios" className={"span-3"} onClick={handleServiceSelection}>Acessórios para casa ou uso pessoal</button>
+                <button name="comidas" className={"span-2"} onClick={handleServiceSelection}>Comidas/doces</button>
                 <button name="estetica" onClick={handleServiceSelection}>Estética</button>
                 <button name="manicure" onClick={handleServiceSelection}>Manicure</button>
                 <button name="terapias" onClick={handleServiceSelection}>Terapias</button>
+                <button name="servicos-comunitarios" className={"center free"} onClick={handleServiceSelection}>Serviços Comunitários</button>
             </div>
         </main>
     )

@@ -5,7 +5,7 @@ export const UserContext = createContext();
 
 export function UserProvider({ children }) {
     const [selectedService, setSelectedService] = useState("/");
-    const serviceNames = ["acessorios", "comidas", "estetica", "manicure", "terapias"];
+    const serviceNames = ["acessorios", "comidas", "estetica", "manicure", "terapias", "servicos-comunitarios"];
 
     useEffect(() => {
         const currentPath = window.location.pathname.substring(1);

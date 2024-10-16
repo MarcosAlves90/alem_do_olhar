@@ -1,7 +1,7 @@
 export default function Footer() {
     return (
-        <footer className={"ul-box"}>
-            <h2>Cronograma do evento</h2>
+        <footer className={"ul-box footer"}>
+            <h2 className={"h2-title-footer"}>Cronograma do evento</h2>
             <p>Entrevistas:</p>
             <ul className={"ul-box-ul-without-points center"}>
                 <li><strong>11h30m - Além do Trivial:</strong> A saúde mental no Empreendedorismo</li>

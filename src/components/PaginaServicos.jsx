@@ -5,19 +5,15 @@ import 'bootstrap-icons/font/bootstrap-icons.css';
 import {data} from "./DataBase.jsx";
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
+import PropTypes from "prop-types";
 
 export default function PaginaServicos() {
     const { selectedService, setSelectedService } = useContext(UserContext);
     const navigate = useNavigate();
-    const [selectedItem, setSelectedItem] = useState(null);
 
-    useEffect(() => {
-        if (selectedItem) {
-            document.body.classList.add('no-scroll');
-        } else {
-            document.body.classList.remove('no-scroll');
-        }
-    }, [selectedItem]);
+    const [selectedItem, setSelectedItem] = useState(null);
+    const [secondPage, setSecondPage] = useState(false);
+
 
     function handleReturnButtonClick() {
         console.log("Button clicked: Return");
@@ -45,73 +41,113 @@ export default function PaginaServicos() {
         );
     }
 
-    function capitalizeFirstLetter(string) {
-        return string.charAt(0).toUpperCase() + string.slice(1);
+    function generateTitle(title) {
+        const titlesMap = {
+            "comidas": "Comidas/Doces",
+            "estetica": "Estética",
+            "manicure": "Manicure",
+            "terapias": "Terapias",
+            "acessorios": "Acessórios",
+            "servicos-comunitarios": "Serviços Comunitários"
+        };
+
+        return titlesMap[title];
     }
 
     function ContactItem({ type, contact }) {
-        let iconClass;
-        switch (type) {
-            case "WhatsApp":
-                iconClass = "bi bi-whatsapp";
-                break;
-            case "Telefone":
-                iconClass = "bi bi-telephone";
-                break;
-            case "Instagram":
-                iconClass = "bi bi-instagram";
-                break;
-            default:
-                iconClass = "";
-        }
+        const iconClasses = {
+            "WhatsApp": "bi bi-whatsapp",
+            "Telefone": "bi bi-telephone",
+            "Instagram": "bi bi-instagram",
+            "Email": "bi bi-envelope",
+            "Other": ""
+        };
 
         return (
             <p className="p-paragraph contact">
-                <i className={iconClass}></i> {contact}
+                <i className={iconClasses[type] || iconClasses["Other"]}></i> {contact}
             </p>
         );
     }
 
+    ContactItem.propTypes = {
+        type: PropTypes.string.isRequired,
+        contact: PropTypes.string.isRequired
+    }
+
     function formatContact(contact) {
+        const contactTypes = {
+            "WhatsApp:": "WhatsApp",
+            "Telefone:": "Telefone",
+            "Instagram:": "Instagram",
+            "Email:": "Email"
+        };
+
         return contact.split('|').map((c, index) => {
             c = c.trim();
-            if (c.startsWith("WhatsApp:")) {
-                return <ContactItem key={index} type="WhatsApp" contact={c.replace("WhatsApp:", "").trim()} />;
-            } else if (c.startsWith("Telefone:")) {
-                return <ContactItem key={index} type="Telefone" contact={c.replace("Telefone:", "").trim()} />;
-            } else if (c.startsWith("Instagram:")) {
-                return <ContactItem key={index} type="Instagram" contact={c.replace("Instagram:", "").trim()} />;
-            } else {
-                return <ContactItem key={index} type="Other" contact={c} />;
+            for (const [prefix, type] of Object.entries(contactTypes)) {
+                if (c.startsWith(prefix)) {
+                    return <ContactItem key={index} type={type} contact={c.replace(prefix, "").trim()} />;
+                }
             }
+            return <ContactItem key={index} type="Other" contact={c} />;
         });
     }
 
+    const handlePopupClose = () => {
+        setSecondPage(false);
+        console.log("Popup closed");
+    }
+
+    useEffect(() => {
+        !selectedItem && handlePopupClose();
+    }, [selectedItem]);
+
+    useEffect(() => {
+        document.body.classList.toggle('no-scroll', !!selectedItem);
+    }, [selectedItem]);
+
     return (
-        <main className={"mainCommon services"}>
-            <h2>{capitalizeFirstLetter(selectedService)}</h2>
+        <main className="mainCommon services">
+            <h2 className="h2-title-no-box">{generateTitle(selectedService)}</h2>
             <GridComponent />
-            <div className={"box-buttons"}>
-                <button onClick={handleReturnButtonClick}><i className="bi bi-arrow-left"></i> Voltar</button>
+            <div className="box-buttons">
+                <button className="center small" onClick={handleReturnButtonClick}>
+                    <i className="bi bi-arrow-left"></i> Voltar
+                </button>
             </div>
             {selectedItem && (
-                <Popup open={true} closeOnDocumentClick onClose={() => setSelectedItem(null)}>
-                    <div className={`popup-content inside ${selectedItem.extra ? "" : "one"}`}
-                         style={{'--item-color': selectedItem.color}}>
+                <Popup open closeOnDocumentClick>
+                    <div className={`popup-content inside ${selectedItem.extra ? "" : "one"}`} style={{ '--item-color': selectedItem.color }}>
                         <i className="bi bi-eye-fill"></i>
-                        <div className={"box"}>
-                            <div className={`left-box`}>
-                                <img src={selectedItem.image} alt={selectedItem.name} className="popup-image"/>
-                                <h3 className={"h3-title"}>{selectedItem.name}</h3>
-                                <p className={"p-paragraph"}>{selectedItem.description}</p>
-                                {formatContact(selectedItem.contact)}
-                                <div className={"box-buttons popup"}>
-                                    <button onClick={() => setSelectedItem(null)}>Fechar</button>
+                        <div className="box">
+                            <div className="left-box">
+                                {!secondPage ? (
+                                    <>
+                                        <img src={selectedItem.image} alt={selectedItem.name} className="popup-image" />
+                                        <h3 className="h3-title">{selectedItem.name}</h3>
+                                        <p className="p-paragraph description">{selectedItem.description}</p>
+                                        {formatContact(selectedItem.contact)}
+                                    </>
+                                ) : (
+                                    <div className="right-box mobile">
+                                        <img src={selectedItem.extra} alt={selectedItem.name} className="popup-extra" />
+                                    </div>
+                                )}
+                                <div className="box-buttons popup">
+                                    <button className={`button-close ${selectedItem.extra ? "small" : "center"}`} onClick={() => setSelectedItem(null)}>
+                                        Fechar
+                                    </button>
+                                    {selectedItem.extra && (
+                                        <button className={`button-arrow ${secondPage ? "left" : ""}`} onClick={() => setSecondPage(!secondPage)}>
+                                            <i className={`bi bi-arrow-${secondPage ? "left" : "right"}`}></i>
+                                        </button>
+                                    )}
                                 </div>
                             </div>
                             {selectedItem.extra && (
-                                <div className={"right-box"}>
-                                    <img src={selectedItem.extra} alt={selectedItem.name} className="popup-extra"/>
+                                <div className="right-box">
+                                    <img src={selectedItem.extra} alt={selectedItem.name} className="popup-extra" />
                                 </div>
                             )}
                         </div>
