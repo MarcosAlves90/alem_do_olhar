@@ -65,6 +65,7 @@ h2 {
     left: 0;
     position: fixed;
     animation: pinkGradientAnimation 8s ease infinite;
+    will-change: background-position;
 }
 
 .background-image:before {

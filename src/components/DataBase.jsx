@@ -43,9 +43,12 @@ export const data = {
     "terapias": [
         {
             "id": 1,
-            "name": "[PLACEHOLDER]",
-            "description": "[PLACEHOLDER]",
-            "image": ""
+            "color": "#688877",
+            "name": "Paula Oli Moreira",
+            "description": "Terapia",
+            "image": "../images/data/logo_PaulaOli.jpg",
+            "contact": "Instagram: @paulaolimoreira | WhatsApp: (11) 91142-6743",
+            "extra": "../images/data/extra_PaulaOli.png"
         }
     ],
     "acessorios": [
