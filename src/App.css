@@ -26,6 +26,12 @@
     scrollbar-color: var(--text-color) var(--box-background-color);
 }
 
+body {
+    background: linear-gradient(270deg, #ff7eb3, #ff4081, #ff1a75, #ff004d, #ff7eb3);
+    background-size: 400% 400%;
+    animation: pinkGradientAnimation 8s ease infinite;
+}
+
 
 p {
     margin: 16px 0 16px 0 !important;
@@ -55,7 +61,6 @@ h2 {
 }
 
 .background-image {
-    background: linear-gradient(270deg, #ff7eb3, #ff4081, #ff1a75, #ff004d, #ff7eb3);
     background-size: 400% 400%;
     opacity: 1.0;
     z-index: -2;
@@ -64,8 +69,6 @@ h2 {
     right: 0;
     left: 0;
     position: fixed;
-    animation: pinkGradientAnimation 8s ease infinite;
-    will-change: background-position;
 }
 
 .background-image:before {
@@ -369,6 +372,7 @@ h2 {
         max-width: 90vw;
         &.inside {
             max-height: 80vh;
+            width: 90vw !important;
             .bi {
                 font-size: 6vw;
             }
@@ -427,6 +431,9 @@ h2 {
             transform: scale(1.1);
             transform-origin: center;
         }
+    }
+    .background-pattern {
+        background-size: 200% 200%;
     }
 }
 
