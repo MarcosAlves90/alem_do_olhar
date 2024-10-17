@@ -84,6 +84,14 @@ export const data = {
             "description": "Personalização de Ecobags, cadernos, chaveiros e buttons e muito mais!",
             "image": "../images/data/logo_criacaoCerta.webp",
             "contact": "Email: criacaocerta@outlook.com | WhatsApp: (11) 99822-3125"
+        },
+        {
+            "id": 3,
+            "color": "#e4daa8",
+            "name": "Ecohelô",
+            "description": "Menos lixo, mais sustentabilidade.",
+            "image": "../images/data/logo_ecohelo.webp",
+            "contact": "Instagram: @ecohelo__ | WhatsApp: (11) 98584-3797"
         }
     ],
     "servicos-comunitarios": [
