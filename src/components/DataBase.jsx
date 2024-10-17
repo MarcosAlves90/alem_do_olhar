@@ -23,7 +23,7 @@ export const data = {
         {
             "id": 1,
             "color": "#d0a9a9",
-            "name": "Estéticas Bia Perez",
+            "name": "Estética Bia Perez",
             "description": "Estética e cosmetologia, especialista em cuidar!",
             "image": "../images/data/logo_esteticaBiaPerez.webp",
             "contact": "Instagram: @estetica.biaperez | WhatsApp: (11) 97323-3606"
