@@ -94,13 +94,8 @@ export default function PaginaServicos() {
         });
     }
 
-    const handlePopupClose = () => {
-        setSecondPage(false);
-        console.log("Popup closed");
-    }
-
     useEffect(() => {
-        !selectedItem && handlePopupClose();
+        !selectedItem && setSecondPage(false);
     }, [selectedItem]);
 
     useEffect(() => {
