@@ -63,6 +63,19 @@ export default function PaginaServicos() {
             "Other": ""
         };
 
+        const handleInstagramClick = (instagramHandle) => {
+            window.open(`https://instagram.com/${instagramHandle}`, '_blank', 'noopener,noreferrer');
+        };
+
+        if (type === "Instagram") {
+            const instagramHandle = contact.replace("@", "");
+            return (
+                <p className="p-paragraph contact" onClick={() => handleInstagramClick(instagramHandle)} style={{ cursor: 'pointer' }}>
+                    <i className={iconClasses[type]}></i> {contact}
+                </p>
+            );
+        }
+
         return (
             <p className="p-paragraph contact">
                 <i className={iconClasses[type] || iconClasses["Other"]}></i> {contact}

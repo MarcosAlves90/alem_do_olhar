@@ -5,7 +5,7 @@ export const data = {
             "color": "#f3641f",
             "name": "Nutri Bolos",
             "description": "Bolos funcionais, sem glúten, lactose e açúcar refinado, feitos diretamente por uma nutricionista.",
-            "contact": "WhatsApp: (11) 99564-0855",
+            "contact": "Instagram: @_nutribolos | WhatsApp: (11) 99564-0855",
             "image": "../images/data/logo_nutribolos.webp",
             "extra": "../images/data/cardapio_nutribolos.webp"
         },
@@ -22,11 +22,20 @@ export const data = {
     "estetica": [
         {
             "id": 1,
-            "color": "#c52d31",
+            "color": "#d0a9a9",
             "name": "Estéticas Bía Perez",
             "description": "Estética",
             "image": "../images/data/logo_esteticaBiaPerez.webp",
             "contact": "Instagram: @estetica.biaperez | WhatsApp: (11) 97323-3606"
+        },
+        {
+            "id": 2,
+            "color": "#ff9fb6",
+            "name": "Gabriela Paschoal",
+            "description": "Beauty Academy.",
+            "image": "../images/data/logo_gabrielaPaschoal.webp",
+            "contact": "Instagram: @gabipaschoalmakeup",
+            "extra": "../images/data/extra_gabrielaPaschoal.webp"
         }
     ],
     "manicure": [
@@ -49,6 +58,14 @@ export const data = {
             "image": "../images/data/logo_PaulaOli.webp",
             "contact": "Instagram: @paulaolimoreira | WhatsApp: (11) 91142-6743",
             "extra": "../images/data/extra_PaulaOli.webp"
+        },
+        {
+            "id": 2,
+            "color": "#b9b9b9",
+            "name": "Casinha Therapêutica",
+            "description": "Bem estar e café.",
+            "image": "../images/data/logo_casinhaTherapeutica.webp",
+            "contact": "Instagram: @casinha.therapeutica | WhatsApp: (11) 94743-5004",
         }
     ],
     "acessorios": [
