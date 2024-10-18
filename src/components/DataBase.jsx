@@ -7,7 +7,7 @@ export const data = {
             "description": "Bolos funcionais, sem glúten, lactose e açúcar refinado, feitos diretamente por uma nutricionista.",
             "contact": "Instagram: @_nutribolos | WhatsApp: (11) 99564-0855",
             "image": "../images/data/logo_nutribolos.webp",
-            "extra": "../images/data/cardapio_nutribolos.webp"
+            "extra": ["../images/data/cardapio_nutribolos.webp"]
         },
         {
             "id": 2,
@@ -16,7 +16,7 @@ export const data = {
             "description": "Bolos caseiros feitos com carinho, e sempre atenta aos detalhes.",
             "contact": "Telefone: (11) 94322-2619",
             "image": "../images/data/logo_cidasDoces.webp",
-            "extra": "../images/data/cardapio_cidasDoces.webp"
+            "extra": ["../images/data/cardapio_cidasDoces.webp"]
         }
     ],
     "estetica": [
@@ -26,7 +26,8 @@ export const data = {
             "name": "Estéticas Bía Perez",
             "description": "Estética",
             "image": "../images/data/logo_esteticaBiaPerez.webp",
-            "contact": "Instagram: @estetica.biaperez | WhatsApp: (11) 97323-3606"
+            "contact": "Instagram: @estetica.biaperez | WhatsApp: (11) 97323-3606",
+            "extra": []
         },
         {
             "id": 2,
@@ -35,7 +36,7 @@ export const data = {
             "description": "Beauty Academy.",
             "image": "../images/data/logo_gabrielaPaschoal.webp",
             "contact": "Instagram: @gabipaschoalmakeup",
-            "extra": "../images/data/extra_gabrielaPaschoal.webp"
+            "extra": ["../images/data/extra_gabrielaPaschoal.webp"]
         }
     ],
     "manicure": [
@@ -46,7 +47,7 @@ export const data = {
             "description": "Nail designer especializada alongamento de gel e fibra, quirodatilogista e aromaterapia.",
             "image": "../images/data/logo_marise.webp",
             "contact": "Instagram: @marise_nailart | WhatsApp: (11) 98283-3435",
-            "extra": "../images/data/extra_marise.webp"
+            "extra": ["../images/data/extra_marise.webp"]
         }
     ],
     "terapias": [
@@ -57,7 +58,7 @@ export const data = {
             "description": "Terapia",
             "image": "../images/data/logo_PaulaOli.webp",
             "contact": "Instagram: @paulaolimoreira | WhatsApp: (11) 91142-6743",
-            "extra": "../images/data/extra_PaulaOli.webp"
+            "extra": ["../images/data/extra_PaulaOli.webp"]
         },
         {
             "id": 2,
@@ -66,6 +67,7 @@ export const data = {
             "description": "Bem estar e café.",
             "image": "../images/data/logo_casinhaTherapeutica.webp",
             "contact": "Instagram: @casinha.therapeutica | WhatsApp: (11) 94743-5004",
+            "extra": []
         }
     ],
     "acessorios": [
@@ -75,7 +77,8 @@ export const data = {
             "name": "AteliEiras",
             "description": "Bolsas, necessaires, kit bebê e muito mais!",
             "image": "../images/data/logo_atelieiras.webp",
-            "contact": "Instagram: @atelieiras | Telefone: (11) 97017-6277"
+            "contact": "Instagram: @atelieiras | Telefone: (11) 97017-6277",
+            "extra": []
         },
         {
             "id": 2,
@@ -83,7 +86,8 @@ export const data = {
             "name": "Criação Certa",
             "description": "Personalização de Ecobags, cadernos, chaveiros e buttons e muito mais!",
             "image": "../images/data/logo_criacaoCerta.webp",
-            "contact": "Email: criacaocerta@outlook.com | WhatsApp: (11) 99822-3125"
+            "contact": "Email: criacaocerta@outlook.com | WhatsApp: (11) 99822-3125",
+            "extra": []
         },
         {
             "id": 3,
@@ -91,7 +95,8 @@ export const data = {
             "name": "Ecohelô",
             "description": "Menos lixo, mais sustentabilidade.",
             "image": "../images/data/logo_ecohelo.webp",
-            "contact": "Instagram: @ecohelo__ | WhatsApp: (11) 98584-3797"
+            "contact": "Instagram: @ecohelo__ | WhatsApp: (11) 98584-3797",
+            "extra": []
         }
     ],
     "servicos-comunitarios": [
@@ -102,7 +107,7 @@ export const data = {
             "description": "Resgate de animais por Amanda Nabeshima, protetora independente.",
             "image": "../images/data/logo_amandaNabeshima.webp",
             "contact": "Instagram: @amanda.nabeshima | WhatsApp: (11) 99986-4852",
-            "extra": "../images/data/extra_amandaNabeshima.webp"
+            "extra": ["../images/data/extra_amandaNabeshima.webp", "../images/data/extra2_amandaNabeshima.webp"]
         }
     ]
 }

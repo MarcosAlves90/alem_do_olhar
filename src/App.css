@@ -84,9 +84,9 @@ h2 {
 .header {
     margin-top: 2vw;
     .svg-title {
-        width: 45vw;
-        height: 160px;
-        object-fit: cover;
+        width: 45%;
+        transform: scale(1.6);
+        transform-origin: center;
     }
 }
 
@@ -238,6 +238,7 @@ h2 {
                 display: flex;
                 align-items: center;
                 justify-content: center;
+                position: relative;
                 .popup-extra {
                     border-radius: 10px;
                     height: auto;
@@ -245,6 +246,22 @@ h2 {
                     max-height: 100%;
                     object-fit: contain;
                     aspect-ratio: 1412 / 2000;
+                    &:hover {
+                        cursor: pointer;
+                    }
+                    &.no-click {
+                        &:hover {
+                            cursor: default;
+                        }
+                    }
+                }
+                .bi-hand-index-thumb-fill {
+                    position: absolute;
+                    font-size: 1.8vw;
+                    top: 5px;
+                    right: 15px;
+                    rotate: -30deg;
+                    mix-blend-mode: difference;
                 }
             }
         }
@@ -318,7 +335,7 @@ h2 {
     }
 }
 
-@media (max-width: 991px) {
+@media (max-width: 600px) {
     #root {
         padding: 0;
         font-size: 3.8vw;
@@ -361,24 +378,32 @@ h2 {
                 padding: 0 0 6vw 0;
                 grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
                 gap: 10px;
+                .grid-name {
+                    font-size: 4vw !important;
+                    margin-bottom: 15% !important;
+                }
             }
         }
     }
     .popup-content {
         max-width: 90vw;
         &.inside {
-            max-height: 80vh;
             width: 90vw !important;
             .bi {
                 font-size: 6vw;
             }
+            .bi-hand-index-thumb-fill {
+                display: none;
+            }
             .box {
                 height: 100%;
                 .left-box {
+                    height: 100%;
                     width: 100%;
                     margin-top: 7vw;
+                    padding: 0;
                     .popup-image {
-                        max-width: 50vw;
+                        max-width: 50%;
                         margin-top: 0;
                     }
                     .h3-title {
@@ -401,10 +426,14 @@ h2 {
                         }
                         .button-close.small {
                             grid-column: span 3;
-                            margin-right: 3vw;
+                            margin-right: 1vw;
+                        }
+                        .button-close.small-left-margin {
+                            margin-left: 1vw;
                         }
                         .button-close.center {
                             grid-column: 2 / 4;
+                            margin: 0 1vw 0 1vw;
                         }
                     }
                 }
@@ -415,6 +444,10 @@ h2 {
                     margin-bottom: 7vw;
                     &.mobile {
                         display: block;
+                        .popup-extra {
+                            width: 100%;
+                            aspect-ratio: 1412 / 2000;
+                        }
                     }
                 }
             }
