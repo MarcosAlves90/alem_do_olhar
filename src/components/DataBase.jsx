@@ -23,8 +23,8 @@ export const data = {
         {
             "id": 1,
             "color": "#d0a9a9",
-            "name": "Estéticas Bía Perez",
-            "description": "Estética",
+            "name": "Estética Bia Perez",
+            "description": "Estética e cosmetologia, especialista em cuidar!",
             "image": "../images/data/logo_esteticaBiaPerez.webp",
             "contact": "Instagram: @estetica.biaperez | WhatsApp: (11) 97323-3606",
             "extra": []
@@ -33,7 +33,7 @@ export const data = {
             "id": 2,
             "color": "#ff9fb6",
             "name": "Gabriela Paschoal",
-            "description": "Beauty Academy.",
+            "description": "Realçando sua beleza com naturalidade e elegância.",
             "image": "../images/data/logo_gabrielaPaschoal.webp",
             "contact": "Instagram: @gabipaschoalmakeup",
             "extra": ["../images/data/extra_gabrielaPaschoal.webp"]
@@ -55,7 +55,7 @@ export const data = {
             "id": 1,
             "color": "#688877",
             "name": "Paula Oli Moreira",
-            "description": "Terapia",
+            "description": "Te guio na sua caminhada emocional para você viver com menos ansiedade e mais felicidade.",
             "image": "../images/data/logo_PaulaOli.webp",
             "contact": "Instagram: @paulaolimoreira | WhatsApp: (11) 91142-6743",
             "extra": ["../images/data/extra_PaulaOli.webp"]
@@ -64,7 +64,7 @@ export const data = {
             "id": 2,
             "color": "#b9b9b9",
             "name": "Casinha Therapêutica",
-            "description": "Bem estar e café.",
+            "description": "Café quentinho e massagem em um só lugar.",
             "image": "../images/data/logo_casinhaTherapeutica.webp",
             "contact": "Instagram: @casinha.therapeutica | WhatsApp: (11) 94743-5004",
             "extra": []
@@ -93,7 +93,7 @@ export const data = {
             "id": 3,
             "color": "#e4daa8",
             "name": "Ecohelô",
-            "description": "Menos lixo, mais sustentabilidade.",
+            "description": "Cuidando de você, e do meio ambiente.",
             "image": "../images/data/logo_ecohelo.webp",
             "contact": "Instagram: @ecohelo__ | WhatsApp: (11) 98584-3797",
             "extra": []
