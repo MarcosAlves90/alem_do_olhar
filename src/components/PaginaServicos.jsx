@@ -10,7 +10,12 @@ import PropTypes from "prop-types";
 const GridComponent = ({ items, onItemClick }) => (
     <div className="grid-container">
         {items.map(item => (
-            <div key={item.id} className="grid-item" style={{ '--hover-color': item.color }} onClick={() => onItemClick(item)}>
+            <div
+                key={item.id}
+                className="grid-item"
+                style={{ '--hover-color': item.color }}
+                onClick={() => onItemClick(item)}
+            >
                 <img src={item.image} alt={item.name} className="grid-image" />
                 <p className="grid-name">{item.name}</p>
                 <i className="bi bi-eye-fill"></i>
@@ -22,7 +27,7 @@ const GridComponent = ({ items, onItemClick }) => (
 GridComponent.propTypes = {
     items: PropTypes.array.isRequired,
     onItemClick: PropTypes.func.isRequired
-}
+};
 
 const ContactItem = ({ type, contact }) => {
     const iconClasses = {
@@ -38,7 +43,11 @@ const ContactItem = ({ type, contact }) => {
     };
 
     return (
-        <p className="p-paragraph contact" onClick={type === "Instagram" ? () => handleInstagramClick(contact.replace("@", "")) : null} style={{ cursor: type === "Instagram" ? 'pointer' : 'default' }}>
+        <p
+            className="p-paragraph contact"
+            onClick={type === "Instagram" ? () => handleInstagramClick(contact.replace("@", "")) : null}
+            style={{ cursor: type === "Instagram" ? 'pointer' : 'default' }}
+        >
             <i className={iconClasses[type] || iconClasses["Other"]}></i> {contact}
         </p>
     );
@@ -59,34 +68,22 @@ const formatContact = (contact) => {
 
     return contact.split('|').map((c, index) => {
         c = c.trim();
-        for (const [prefix, type] of Object.entries(contactTypes)) {
-            if (c.startsWith(prefix)) {
-                return <ContactItem key={index} type={type} contact={c.replace(prefix, "").trim()} />;
-            }
-        }
-        return <ContactItem key={index} type="Other" contact={c} />;
+        const matchedType = Object.entries(contactTypes).find(([prefix]) => c.startsWith(prefix));
+        return <ContactItem key={index} type={matchedType ? matchedType[1] : "Other"} contact={c.replace(matchedType ? matchedType[0] : "", "").trim()} />;
     });
 };
 
 const PopupContent = ({ item, onClose, mobileSelectedExtra, setMobileSelectedExtra, selectedExtra, setSelectedExtra }) => {
-    const handleRightArrowButtonClick = (extras) => {
-        if (mobileSelectedExtra !== extras - 1) setMobileSelectedExtra(mobileSelectedExtra + 1);
-    };
-
-    const handleLeftArrowButtonClick = () => {
-        if (mobileSelectedExtra !== -1) setMobileSelectedExtra(mobileSelectedExtra - 1);
-    };
-
-    const returnRightBoxImageSrc = () => {
-        return item.extra[selectedExtra];
+    const handleArrowButtonClick = (direction, max) => {
+        if (direction === 'right' && mobileSelectedExtra < max - 1) {
+            setMobileSelectedExtra(mobileSelectedExtra + 1);
+        } else if (direction === 'left' && mobileSelectedExtra > -1) {
+            setMobileSelectedExtra(mobileSelectedExtra - 1);
+        }
     };
 
     const handleRightBoxImageClick = () => {
-        if ((item.extra.length - 1) > selectedExtra) {
-            setSelectedExtra(selectedExtra + 1);
-        } else {
-            setSelectedExtra(0);
-        }
+        setSelectedExtra((selectedExtra + 1) % item.extra.length);
     };
 
     return (
@@ -109,15 +106,18 @@ const PopupContent = ({ item, onClose, mobileSelectedExtra, setMobileSelectedExt
                         )}
                         <div className="box-buttons popup">
                             {mobileSelectedExtra > -1 && (
-                                <button className="button-arrow" onClick={handleLeftArrowButtonClick}>
+                                <button className="button-arrow" onClick={() => handleArrowButtonClick('left')}>
                                     <i className="bi bi-arrow-left"></i>
                                 </button>
                             )}
-                            <button className={`button-close ${mobileSelectedExtra > -1 && mobileSelectedExtra < (item.extra.length - 1) ? "center" : mobileSelectedExtra === (item.extra.length - 1) && item.extra.length > 0 ? "small-left-margin" : item.extra.length > 0 ? "small" : "center"}`} onClick={onClose}>
+                            <button
+                                className={`button-close ${mobileSelectedExtra === item.extra.length - 1 ? "small-left-margin" : mobileSelectedExtra > -1 ? "center" : item.extra.length > 0 ? "small" : "center"}`}
+                                onClick={onClose}
+                            >
                                 Fechar
                             </button>
-                            {item.extra && mobileSelectedExtra < (item.extra.length - 1) && (
-                                <button className="button-arrow" onClick={() => handleRightArrowButtonClick(item.extra.length)}>
+                            {item.extra.length > mobileSelectedExtra + 1 && (
+                                <button className="button-arrow" onClick={() => handleArrowButtonClick('right', item.extra.length)}>
                                     <i className="bi bi-arrow-right"></i>
                                 </button>
                             )}
@@ -128,7 +128,12 @@ const PopupContent = ({ item, onClose, mobileSelectedExtra, setMobileSelectedExt
                             {item.extra.length > 1 && (
                                 <i className="bi bi-hand-index-thumb-fill"></i>
                             )}
-                            <img src={returnRightBoxImageSrc()} alt={item.name} onClick={handleRightBoxImageClick} className={`popup-extra ${item.extra.length < 2 ? "no-click" : ""}`} />
+                            <img
+                                src={item.extra[selectedExtra]}
+                                alt={item.name}
+                                onClick={handleRightBoxImageClick}
+                                className={`popup-extra ${item.extra.length < 2 ? "no-click" : ""}`}
+                            />
                         </div>
                     )}
                 </div>
@@ -144,7 +149,7 @@ PopupContent.propTypes = {
     setMobileSelectedExtra: PropTypes.func.isRequired,
     selectedExtra: PropTypes.number.isRequired,
     setSelectedExtra: PropTypes.func.isRequired
-}
+};
 
 export default function PaginaServicos() {
     const { selectedService, setSelectedService } = useContext(UserContext);
