@@ -111,7 +111,7 @@ const PopupContent = ({ item, onClose, mobileSelectedExtra, setMobileSelectedExt
                                 </button>
                             )}
                             <button
-                                className={`button-close ${mobileSelectedExtra === item.extra.length - 1 ? "small-left-margin" : mobileSelectedExtra > -1 ? "center" : item.extra.length > 0 ? "small" : "center"}`}
+                                className={`button-close ${mobileSelectedExtra === item.extra.length - 1 && item.extra.length > 0 ? "small-left-margin" : mobileSelectedExtra > -1 ? "center" : item.extra.length > 0 ? "small" : "center"}`}
                                 onClick={onClose}
                             >
                                 Fechar
