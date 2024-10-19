@@ -232,13 +232,15 @@ h2 {
                 }
             }
             .right-box {
+                background-color: rgba(255, 255, 255, 0.18);
                 height: 100%;
-                padding-left: 1vw;
+                margin-left: 1vw;
                 width: 60%;
                 display: flex;
                 align-items: center;
                 justify-content: center;
                 position: relative;
+                border-radius: 10px;
                 .popup-extra {
                     border-radius: 10px;
                     height: auto;
@@ -442,6 +444,7 @@ h2 {
                     width: 100%;
                     padding: 0;
                     margin-bottom: 7vw;
+                    margin-left: 0;
                     &.mobile {
                         display: block;
                         .popup-extra {
@@ -463,6 +466,20 @@ h2 {
     }
     .background-pattern {
         background-size: 200% 200%;
+    }
+}
+
+@media (min-width: 523px) and (max-width: 600px) {
+    .mainCommon {
+        &.services {
+            .grid-container {
+                .grid-item {
+                    .grid-name {
+                        font-size: 75% !important;
+                    }
+                }
+            }
+        }
     }
 }
 
