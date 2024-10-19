@@ -73,7 +73,20 @@ const formatContact = (contact) => {
     });
 };
 
+const preloadImages = (imageUrls) => {
+    imageUrls.forEach((url) => {
+        const img = new Image();
+        img.src = url;
+    });
+};
+
 const PopupContent = ({ item, onClose, mobileSelectedExtra, setMobileSelectedExtra, selectedExtra, setSelectedExtra }) => {
+    useEffect(() => {
+        if (item.extra && item.extra.length > 0) {
+            preloadImages(item.extra);
+        }
+    }, [item]);
+
     const handleArrowButtonClick = (direction, max) => {
         if (direction === 'right' && mobileSelectedExtra < max - 1) {
             setMobileSelectedExtra(mobileSelectedExtra + 1);
